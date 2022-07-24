@@ -24,7 +24,7 @@ struct ContentView<Service: JSONService>: View {
                 }
             }
             
-            NavigationLink("Details", value: "Details")
+            NavigationLink("Details", value: Route.detail(petId: 1))
                 .buttonStyle(.borderedProminent)
             
         }.task {
@@ -38,6 +38,12 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             ContentView(jsonService: LocalService())
+                .navigationDestination(for: Route.self) { route in
+                    switch route {
+                        case .detail(let petId):
+                            PetDetailView() 
+                    }
+                }
         }
     }
 }

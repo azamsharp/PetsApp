@@ -18,8 +18,9 @@ class LocalService: JSONService, ObservableObject {
         }
         
         let data = try Data(contentsOf: URL(fileURLWithPath: path))
-        Task { @MainActor in
-            self.screenModel = try JSONDecoder().decode(ScreenModel.self, from: data)
+        
+        Task { @MainActor [weak self] in
+            self?.screenModel = try JSONDecoder().decode(ScreenModel.self, from: data)
         }
         
     }

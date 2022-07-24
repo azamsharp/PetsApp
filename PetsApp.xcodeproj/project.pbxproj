@@ -22,6 +22,9 @@
 		8DC06BB1288C892700A405E4 /* ScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC06BB0288C892700A405E4 /* ScreenModel.swift */; };
 		8DC06BB4288C896800A405E4 /* UIComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC06BB3288C896800A405E4 /* UIComponent.swift */; };
 		8DC06BB6288C89B700A405E4 /* LocalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC06BB5288C89B700A405E4 /* LocalService.swift */; };
+		8DC06BB8288D95CD00A405E4 /* PetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC06BB7288D95CD00A405E4 /* PetDetailView.swift */; };
+		8DC06BBA288D95F000A405E4 /* pet-detail.json in Resources */ = {isa = PBXBuildFile; fileRef = 8DC06BB9288D95F000A405E4 /* pet-detail.json */; };
+		8DC06BBC288D971B00A405E4 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC06BBB288D971B00A405E4 /* Webservice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,9 @@
 		8DC06BB0288C892700A405E4 /* ScreenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenModel.swift; sourceTree = "<group>"; };
 		8DC06BB3288C896800A405E4 /* UIComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponent.swift; sourceTree = "<group>"; };
 		8DC06BB5288C89B700A405E4 /* LocalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalService.swift; sourceTree = "<group>"; };
+		8DC06BB7288D95CD00A405E4 /* PetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetDetailView.swift; sourceTree = "<group>"; };
+		8DC06BB9288D95F000A405E4 /* pet-detail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "pet-detail.json"; sourceTree = "<group>"; };
+		8DC06BBB288D971B00A405E4 /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +106,7 @@
 				8DC06B99288C862800A405E4 /* ContentView.swift */,
 				8DC06B9B288C862A00A405E4 /* Assets.xcassets */,
 				8DC06B9D288C862A00A405E4 /* Preview Content */,
+				8DC06BB7288D95CD00A405E4 /* PetDetailView.swift */,
 			);
 			path = PetsApp;
 			sourceTree = "<group>";
@@ -116,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				8DC06BA6288C866700A405E4 /* pets-listing.json */,
+				8DC06BB9288D95F000A405E4 /* pet-detail.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -135,6 +143,7 @@
 			children = (
 				8DC06BAE288C88F200A405E4 /* JSONService.swift */,
 				8DC06BB5288C89B700A405E4 /* LocalService.swift */,
+				8DC06BBB288D971B00A405E4 /* Webservice.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -206,6 +215,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DC06BBA288D95F000A405E4 /* pet-detail.json in Resources */,
 				8DC06B9F288C862A00A405E4 /* Preview Assets.xcassets in Resources */,
 				8DC06BA7288C866700A405E4 /* pets-listing.json in Resources */,
 				8DC06B9C288C862A00A405E4 /* Assets.xcassets in Resources */,
@@ -226,6 +236,8 @@
 				8DC06B9A288C862800A405E4 /* ContentView.swift in Sources */,
 				8DC06B98288C862800A405E4 /* PetsAppApp.swift in Sources */,
 				8DC06BB4288C896800A405E4 /* UIComponent.swift in Sources */,
+				8DC06BB8288D95CD00A405E4 /* PetDetailView.swift in Sources */,
+				8DC06BBC288D971B00A405E4 /* Webservice.swift in Sources */,
 				34CAF6E6288CA1C90016F5FD /* CarouselComponent.swift in Sources */,
 				34CAF6E9288CA21F0016F5FD /* View+Extensions.swift in Sources */,
 				8DC06BAC288C888900A405E4 /* JSON.swift in Sources */,
