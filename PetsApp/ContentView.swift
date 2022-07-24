@@ -17,14 +17,16 @@ struct ContentView<Service: JSONService>: View {
     
     var body: some View {
         VStack {
-            if let screenModel = jsonService.screenModel {
-                Text("\(screenModel.components.count)")
+            
+            if let screenModel = jsonService.screenModel, let components = try? screenModel.buildComponents() {
+                ForEach(components, id: \.uniqueId) { component in
+                    component.render()
+                }
             }
             
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            NavigationLink("Details", value: "Details")
+                .buttonStyle(.borderedProminent)
+            
         }.task {
             try? await jsonService.load("pets-listing")
         }
@@ -34,6 +36,8 @@ struct ContentView<Service: JSONService>: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(jsonService: LocalService())
+        NavigationStack {
+            ContentView(jsonService: LocalService())
+        }
     }
 }

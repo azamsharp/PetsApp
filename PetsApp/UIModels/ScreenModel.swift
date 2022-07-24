@@ -45,7 +45,10 @@ extension ScreenModel {
         for component in self.components {
             switch component.type {
                 case .carousel:
-                    print("Create and return carousel component")
+                guard let uiModel: CarouselUIModel = component.data.decode() else {
+                    throw ComponentError.decodingError
+                }
+                components.append(CarouselComponent(uiModel: uiModel))
             }
         }
         
