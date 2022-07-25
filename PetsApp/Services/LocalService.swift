@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LocalService: JSONService, ObservableObject {
+class LocalService: JSONService {
     
     @Published var screenModel: ScreenModel?
     
@@ -21,6 +21,7 @@ class LocalService: JSONService, ObservableObject {
         
         Task { @MainActor [weak self] in
             self?.screenModel = try JSONDecoder().decode(ScreenModel.self, from: data)
+            objectWillChange.send()
         }
         
     }

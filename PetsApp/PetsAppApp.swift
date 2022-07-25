@@ -17,14 +17,15 @@ struct PetsAppApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                ContentView(jsonService: LocalService())
+                ContentView()
+                   
                     .navigationDestination(for: Route.self) { route in
                         switch route {
                             case .detail(let petId):
-                                Text("\(petId)")
+                                PetDetailView(petId: petId)
                         }
                     }
-            }
+            } .environmentObject(Webservice())
         }
     }
 }

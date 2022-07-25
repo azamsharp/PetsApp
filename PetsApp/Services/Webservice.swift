@@ -17,7 +17,7 @@ class Webservice: JSONService, ObservableObject {
     
     func load(_ resourceName: String) async throws {
        
-        guard let url = URL(string: "http://localhost:8080/pet-listing") else {
+        guard let url = Constants.ScreenResources.resource(for: resourceName) else {
             throw NetworkError.invalidUrl
         }
         
@@ -30,6 +30,7 @@ class Webservice: JSONService, ObservableObject {
         
         Task { @MainActor [weak self]  in
             self?.screenModel = try JSONDecoder().decode(ScreenModel.self, from: data)
+            print(self?.screenModel)
         }
     }
    

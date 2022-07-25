@@ -7,18 +7,14 @@
 
 import SwiftUI
 
-struct ContentView<Service: JSONService>: View {
+struct ContentView: View {
     
-    @StateObject private var jsonService: Service
-    
-    init(jsonService: Service) {
-        _jsonService = StateObject(wrappedValue: jsonService)
-    }
+   @StateObject private var service = Webservice()
     
     var body: some View {
-        VStack {
+        ScrollView {
             
-            if let screenModel = jsonService.screenModel, let components = try? screenModel.buildComponents() {
+            if let screenModel = service.screenModel, let components = try? screenModel.buildComponents() {
                 ForEach(components, id: \.uniqueId) { component in
                     component.render()
                 }
@@ -27,8 +23,10 @@ struct ContentView<Service: JSONService>: View {
             NavigationLink("Details", value: Route.detail(petId: 1))
                 .buttonStyle(.borderedProminent)
             
+            .navigationTitle("Pets")
+            
         }.task {
-            try? await jsonService.load("pets-listing")
+            try? await service.load(Constants.ScreenResources.petListing)
         }
         
     }
@@ -37,11 +35,11 @@ struct ContentView<Service: JSONService>: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            ContentView(jsonService: LocalService())
+            ContentView()
                 .navigationDestination(for: Route.self) { route in
                     switch route {
-                        case .detail(let petId):
-                            PetDetailView() 
+                        case .detail(_):
+                            PetDetailView(petId: 1)
                     }
                 }
         }
